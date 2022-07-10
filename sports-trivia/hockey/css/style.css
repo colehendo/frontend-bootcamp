@@ -1,0 +1,223 @@
+/* 
+Project Name: Blank Template
+Client: Your Client
+Author: Your Name
+Developer @GA in NYC
+*/
+
+
+/******************************************
+/* SETUP                   
+/*******************************************/
+
+/* Box Model Hack */
+* {
+     -moz-box-sizing: border-box; /* Firexfox */
+     -webkit-box-sizing: border-box; /* Safari/Chrome/iOS/Android */
+     box-sizing: border-box; /* IE */
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+     clear: both;
+}
+
+.alignright {
+     float: right; 
+     padding: 0 0 10px 10px; /* note the padding around a right floated image */
+}
+
+.alignleft {
+     float: left; 
+     padding: 0 10px 10px 0; /* note the padding around a left floated image */
+}
+
+/******************************************
+/* BASE STYLES                   
+/*******************************************/
+
+body {
+     color: white;
+     font-size: 12px;
+     line-height: 1.4;
+     font-family: Helvetica, Arial, sans-serif;
+     background: #000015;
+}
+
+
+/******************************************
+/* LAYOUT                   
+/*******************************************/
+
+/* Center the container */
+#container {
+     margin: auto;
+     width: 600px;
+     text-align: center;
+}
+
+header {
+     background: DarkGoldenRod;
+     padding: 1% 0 1% 0;
+}
+
+footer {
+     font-family: 'Lato', sans-serif;
+     margin: 3% 0 5% 0;
+}
+
+/******************************************
+/* ADDITIONAL STYLES                   
+/*******************************************/
+
+a {
+     text-decoration: none;
+     color: white;
+     font-family: 'Patua One', cursive;
+     font-size: 450%;
+     margin-left: 5%;
+}
+
+h2 {
+     font-family: 'Roboto', sans-serif;
+     font-size: 250%;
+     margin-top: 4%;
+     text-align: left;
+}
+
+h1 {
+     font-family: 'Roboto', sans-serif;
+     font-size: 350%;
+     margin-bottom: 2%;
+}
+
+h3 {
+     font-family: 'Roboto', sans-serif;
+     font-size: 350%;
+     margin-bottom: 3%;
+     display: none;
+}
+
+button {
+     background: DarkGoldenRod;
+     color: white;
+     border: none;
+     max-width: 40%;
+     min-width: 40%;
+     padding: 5% 0 5% 0;
+     font-size: 150%;
+     cursor: pointer;
+     margin-bottom: 7%;
+     box-shadow: 0 .3em #815b00;
+}
+
+button:active {
+     box-shadow: none;
+     transform: translateY(.2em);
+}
+
+button + button {
+     margin-left: 7%;
+}
+
+button:focus {
+     outline: 0;
+}
+
+#thirdButton {
+     margin-left: 0;
+}
+
+#nextQuestion {
+     display: none;
+     margin: auto;
+}
+
+#startTrivia {
+     font-size: 500%;
+     max-width: 100%;
+     min-width: 100%;
+     font-weight: 700;
+     margin-top: 35%;
+}
+
+.done {
+     display: block;
+}
+
+.correct {
+     background: green;
+     -webkit-transition: background-color 1s ease;
+     -moz-transition: background-color 1s ease;
+     -o-transition: background-color 1s ease;
+     transition: background-color 1s ease;
+     box-shadow: none;
+}
+
+.incorrect {
+     background: red;
+     -webkit-transition: background-color 1s ease;
+     -moz-transition: background-color 1s ease;
+     -o-transition: background-color 1s ease;
+     transition: background-color 1s ease;
+     box-shadow: none;
+}
+
+#nextQuestion.done {
+     display: block;
+}
+
+.hide {
+     display: none;
+}
+
+#primary_nav_wrap {
+     margin: -1.3% 0 -1% 75%;
+}
+
+#primary_nav_wrap ul {
+     list-style:none;
+     position:relative;
+}
+
+#primary_nav_wrap ul a {
+     display:block;
+     color: white;
+     text-decoration:none;
+     font-size: 200%;
+     font-family: 'Patua One', cursive;
+}
+
+#primary_nav_wrap ul li {
+     position:relative;
+}
+
+#primary_nav_wrap ul ul {
+     display:none;
+     position:absolute;
+     top:100%;
+}
+
+#primary_nav_wrap ul ul li {
+     float:none;
+     width:200px;
+     background: #000015;
+}
+
+#primary_nav_wrap ul ul a {
+     line-height:120%;
+     padding: 4% 4%;
+}
+
+#primary_nav_wrap ul li:hover > ul {
+     display:block
+}
