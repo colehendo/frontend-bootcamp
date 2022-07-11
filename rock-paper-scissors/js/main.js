@@ -1,75 +1,74 @@
-var botScore=0;
-	playerScore=0;
-	playersWeapon="rock";
+const ROCK = "rock";
+const PAPER = "paper";
+const SCISSORS = "scissors";
 
-document.getElementById("rock").onclick=playerThrowsRock;
-function playerThrowsRock(){
-	playersWeapon = "rock";
-	var botsWeapon=getRandomWeapon();
-	checkWhoWon(botsWeapon,"rock");
+var botScore = 0;
+var playerScore = 0;
+var playersWeapon = ROCK;
+
+function increaseBotScore() {
+  botScore += 1;
+  document.getElementById("computerScore").innerHTML = botScore;
+  var botsWeapon = getRandomWeapon();
+
+  displayCompleteMessage(playersWeapon, botsWeapon, "You lose. :(");
 }
 
-document.getElementById("scissors").onclick=playerThrowsScissors;
-function playerThrowsScissors(){
-	playersWeapon = "scissors";
-	var botsWeapon=getRandomWeapon();
-	checkWhoWon(botsWeapon,"scissors");
+function increasePlayerScore() {
+  playerScore += 1;
+  document.getElementById("humanScore").innerHTML = playerScore;
+  var botsWeapon = getRandomWeapon();
+
+  displayCompleteMessage(playersWeapon, botsWeapon, "You win! :)");
 }
 
-document.getElementById("paper").onclick=playerThrowsPaper;
-function playerThrowsPaper(){
-	playersWeapon = "paper";
-	var botsWeapon=getRandomWeapon();
-	checkWhoWon(botsWeapon,"paper");
+function displayCompleteMessage(playersWeapon, botsWeapon, result) {
+  message = `You played <span class=underline>${playersWeapon}</span>. The bot played <span class=bold>${botsWeapon}</span>.<br><br>${result}`;
+  document.getElementById("status").innerHTML = message;
 }
 
-function getRandomWeapon(){
-	var randomNumber=Math.random();
-	var botsWeapon="rock";
-	if(randomNumber<.33){
-		botsWeapon="scissors";
-	}
-	else if(randomNumber<.6666){
-		botsWeapon="paper";
-	}
-	return botsWeapon;
+function getRandomWeapon() {
+  var randomNumber = Math.random();
+  var botsWeapon = ROCK;
+  if (randomNumber < 0.33) {
+    botsWeapon = SCISSORS;
+  } else if (randomNumber < 0.6666) {
+    botsWeapon = PAPER;
+  }
+  return botsWeapon;
 }
 
-function checkWhoWon(botsWeapon,playersWeapon){
-	if(botsWeapon==playersWeapon){
-		displayCompleteMessage("You played <span class=underline>" + playersWeapon + "</span>. The bot played <span class=bold>" + botsWeapon + '</span>.<br><br>You tied. :|');
-	}
-	else if(
-		(botsWeapon=="scissors" && playersWeapon=="paper") ||
-		(botsWeapon=="paper" && playersWeapon=="rock") ||
-		(botsWeapon=="rock" && playersWeapon=="scissors")
-		){
-		increaseBotScore();
-	}
-	else{
-		increasePlayerScore();
-	}
+function checkWhoWon(botsWeapon, playersWeapon) {
+  if (botsWeapon == playersWeapon) {
+    displayCompleteMessage(playersWeapon, botsWeapon, "You tied. :|");
+  } else if (
+    (botsWeapon == SCISSORS && playersWeapon == PAPER) ||
+    (botsWeapon == PAPER && playersWeapon == ROCK) ||
+    (botsWeapon == ROCK && playersWeapon == SCISSORS)
+  ) {
+    increaseBotScore();
+  } else {
+    increasePlayerScore();
+  }
 }
 
-function increaseBotScore(){
-	botScore+=1;
-	document.getElementById("computerScore").innerHTML=botScore;
-	var botsWeapon = getRandomWeapon();
-	displayCompleteMessage("You played <span class=underline>" + playersWeapon + "</span>. The bot played <span class=bold>" + botsWeapon + '</span>.<br><br>You lose. :(');
+document.getElementById(ROCK).onclick = playerThrowsRock;
+function playerThrowsRock() {
+  playersWeapon = ROCK;
+  var botsWeapon = getRandomWeapon();
+  checkWhoWon(botsWeapon, ROCK);
 }
 
-function increasePlayerScore(){
-	playerScore+=1;
-	document.getElementById("humanScore").innerHTML=playerScore;
-	var botsWeapon = getRandomWeapon();
-	displayCompleteMessage("You played <span class=underline>" + playersWeapon + "</span>. The bot played <span class=bold>" + botsWeapon + '</span>.<br><br>You win! :)');
+document.getElementById(SCISSORS).onclick = playerThrowsScissors;
+function playerThrowsScissors() {
+  playersWeapon = SCISSORS;
+  var botsWeapon = getRandomWeapon();
+  checkWhoWon(botsWeapon, SCISSORS);
 }
 
-function displayCompleteMessage(msg){
-	document.getElementById("status").innerHTML=msg;
+document.getElementById(PAPER).onclick = playerThrowsPaper;
+function playerThrowsPaper() {
+  playersWeapon = PAPER;
+  var botsWeapon = getRandomWeapon();
+  checkWhoWon(botsWeapon, PAPER);
 }
-
-
- 
-
-
